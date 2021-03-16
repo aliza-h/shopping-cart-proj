@@ -9,3 +9,10 @@
 - homepage (list of items)
 - cart page ("proceed to checkout" at bottom)
 - checkout page (print the cart items)
+
+
+**REFERENCES:**
+
+https://github.com/fiarh/cset/blob/master/110/css-selectors/selectors.css
+
+https://github.com/fiarh/cset/blob/master/110/css-selectors/selectors.html
