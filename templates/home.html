@@ -1,0 +1,38 @@
+{% extends "skeleton.html" %}
+
+{% block head %}
+    <title>cool cart club</title>
+{% endblock %}
+
+{% block body %}
+
+    <div class="page">
+
+        <h2>cool cart club</h2>
+
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Actions</th>
+            </tr>
+
+            {% for item in items %} <!-- This makes it possible to add the data onto the page! -->
+                <tr>
+                    <td>
+                        {{ item.content }}
+                    </td>
+                    <td>
+                        <a href="">some link idk</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <form action="/" method="POST">
+            <input type="text" name="item" id="item"/>
+            <input type="submit" value="add to cart"/>
+        </form>
+
+    </div>
+
+{% endblock %}

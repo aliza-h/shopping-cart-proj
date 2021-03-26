@@ -16,3 +16,16 @@
 https://github.com/fiarh/cset/blob/master/110/css-selectors/selectors.css
 
 https://github.com/fiarh/cset/blob/master/110/css-selectors/selectors.html
+
+
+BOOKS:
+Uprooted (Naomi Novik)
+Koko Takes a Holiday (Kieran Shea)
+Who Fears Death (Nnedi Okorafor)
+Fairest (Marissa Meyer)
+COVID-128 (Marissa Meyer)
+Updraft (Fran Wilde)
+The Little Android (Marissa Meyer)
+Spinning Silver (Naomi Novik)
+Boring Girls (Sara Taylor)
+Autonomous (Annalee Newitz)

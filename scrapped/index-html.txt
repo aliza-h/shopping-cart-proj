@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8"/>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' /> <!-- Put this on EVERY website you make! -->
+	<title>Home</title>
+	<link rel="stylesheet" href="../static/style.css"/>
+</head>
+
+<body>
+<div class="page">
+	<!-- Vertical list with buttons on right side of each item -->
+		<!-- List item -->
+			<!-- List text -->
+				<!-- "Add to Cart" button -->
+
+	<div class="shopping-list">
+		
+		<form action="/add-to-cart" method="POST">
+			<input type="text" value="your mom" name="book-title">
+			<input type="submit" value="Add to cart">
+		</form>
+
+	</div>
+
+	<div class="bottom-of-page">
+		<a href="/view-cart">View cart</a>
+	</div>
+
+</div>
+</body>
+</html>

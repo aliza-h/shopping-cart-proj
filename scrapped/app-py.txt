@@ -1,0 +1,60 @@
+from flask import Flask, render_template, url_for, request, redirect
+from flask_sqlalchemy import SQLAlchemy
+# This imports everything we'll need to run this app.
+
+app = Flask(__name__) # Refers to this file
+
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///cart.db" # telling app where the database is located
+
+db = SQLAlchemy(app) # initializes database with settings from app.py
+
+
+class user_cart(db.Model): # creates the tables
+    id = db.Column(db.Integer, primary_key = True)
+
+    title = db.Column(db.String(200), nullable = False) # nullable = false b/c we don't want this to be left blank
+
+    def __repr__(self): # returns a string every time a new item is created
+        return ("BOOK %r" % self.id)
+        # %r denotes a "raw string"
+        # Whatever comes after the % outside that string (i.e., %self.id) is what's meant to be put INSIDE the string
+
+@app.route("/", methods = ["POST", "GET"])
+def index():
+    return render_template('index.html')
+# creates an index route so the page doesn't just 404
+# also adds methods that the route can accept, which means we can now send data to our database
+
+
+@app.route("/add-to-cart", methods = ["POST", "GET"]) # This tells the app what to do. SEPARATE THE ROUTES!
+def form():
+    if request.method == "POST":
+        book_title = request.form['book-title']
+
+        new_book = user_cart(title = book_title)
+
+        try:
+            db.session.add(new_book) # adds the book to the database
+            db.session.commit() # commits book to database (finalizes it)
+
+            return redirect("/")
+            # redirects back to index.html
+        except:
+            return "There was a problem adding your book."
+    else:
+        books = user_cart.query.all() # shows all tasks in order of date created
+        return books # It knows to look in the "templates" folder.
+
+@app.route("/view-cart")
+def view_cart():
+    return render_template("cart.html")
+
+@app.route("/view-checkout")
+def view_checkout():
+    return render_template("checkout.html")
+
+
+
+# Keep at bottom of script!
+if __name__ == "__main__":
+    app.run(debug = True) # shows any bugs
